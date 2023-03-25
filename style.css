@@ -1,0 +1,298 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #080624;
+    color: white;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.conteudo {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.principal {
+    margin: auto;
+    max-width: 1500px;
+    width: 95vw;
+    height: 95vh;
+}
+
+/* CABEÇALHO */
+header {
+    padding: 10px;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    font-size: 2.5rem;
+    text-align: center;
+    background-color: blue;
+}
+
+.contato {
+    position: relative;
+    margin-left: auto;
+    border-bottom: 3px solid white;
+    transition: 1s;
+}
+
+.contato a {
+    padding: 10px;
+    font-size: 1.8rem;
+}
+
+#linkedin, #github, #email{
+    transition: 1s;
+}
+
+#email:hover{
+    color: #9aff9a;
+}
+
+#github:hover{
+    color: #753cfc;
+}
+
+#linkedin:hover{
+    color: #00a6ff;
+    transition: 1s;
+}
+
+#nomeIcon{
+    font-size: 1.3rem;
+    position: absolute;
+    bottom: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* SOBRE */
+.sobre {
+    max-width: 700px;
+    position: relative;
+    padding: 5px 15px;
+    border-left: 5px solid #13119e;
+    animation: border 2s ;
+    animation-name: borda;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+.sobre h2, .sobre h3{
+    border-right: 4px solid white;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.sobre h2 {
+    font-family: monospace;
+    font-size: 2.5rem;
+    width: 17ch;
+    animation: escrevendo 2s steps(17), piscar 0.5s infinite step-end alternate;
+}
+
+.sobre h3 {
+    font-family: monospace;
+    width: 36ch;
+    animation: escrevendo 3s 2.2s steps(36), piscar 0.5s 2.2s infinite step-end alternate, aparecer 2.2s;
+}
+
+.sobre span{
+    color: #0077ff;
+}
+
+.sobre p {
+    font-size: 1.2rem;
+}
+
+.linkContato{
+    position: relative;
+}
+
+.linkContato::after{
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 30px;
+    height: 4px;
+    background-color: rgba(97, 255, 24, 0.822);
+    transition: width 0.3s ease-in-out;
+}
+
+.linkContato:hover::after {
+    width: 100%;
+}
+  
+
+/* Projetos */
+.btnProjetos {
+    width: 300px;
+    padding: 15px;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    border: 3px solid;
+    position: relative;
+    background-color: transparent;
+    color: white;
+    box-shadow: 0px 0px 50px #4b41db;
+    animation: border 2s ;
+    animation-name: borda;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+.btnProjetos:hover{
+    animation-play-state: paused;
+    color: #00ccff;
+    box-shadow: 0px 0px 100px #4b41db;
+}
+
+.btnProjetos::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: calc(100% + 20px);
+    height: calc(100% + 20px);
+    border: 3px solid white;
+    border-radius: 10px;
+    animation: pulsar 1.5s linear infinite;
+    z-index: -5;
+}
+
+.projetos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.projetos p{
+    font-size: 1.2rem;
+}
+
+.imgProjeto{
+    margin: 10px;    
+}
+
+.imgProjeto img {
+    max-width: 100%;
+    border-top: 8px solid #00ccff;
+    border-left: 8px solid #00ccff;
+    border-radius: 20px;
+    transition: 1s;
+}
+
+.imgProjeto img:hover {
+    max-width: 100%;
+    border-top: 8px solid #0004ff;
+    border-left: 8px solid #0004ff;
+    border-radius: 20px;
+    transition: 1s;
+    transform: scale(1.05);
+}
+
+.tecnologias{
+    color: #31b4ff;
+}
+
+/* HABILIDADES */
+.habilidades{
+    margin-top: 60px;
+    text-align: center;
+}
+
+.icons{
+    display: inline-block;
+}
+
+.icons p{
+    margin-top: 2px;
+    font-size: 1.5rem;
+    opacity: 0;
+    transition: 1s;
+}
+
+.icons img:hover + p{
+    opacity: 1;
+    transition: 1s;
+}
+
+.habilidades img{
+    filter: grayscale(100%);
+    transition: 1s;
+    height: 90px;
+}
+
+.habilidades img:hover{
+    transform: scale(1.1);
+    transition: 1s;
+    filter: grayscale(0);
+}
+
+/* ANIMAÇÃO */
+
+@keyframes borda {
+    0% {
+      border-color: #00ccff;
+    }
+
+    100% {
+      border-color: #4d00b3;
+    }
+  }
+
+  @keyframes escrevendo {
+    0% {
+      width: 0;
+    }
+  }
+
+  @keyframes piscar {
+    50% {
+      border-color: transparent;
+    }
+  }
+
+  @keyframes aparecer {
+    0% {
+      opacity: 0;
+    }
+    100%{
+        opacity: 0;
+    }
+  }
+
+  @keyframes pulsar {
+    0% {
+      transform: scale(0.9);
+      opacity: 0;
+      border-color: #00ccff;
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        transform: scale(1.1);
+        opacity: 0;
+        border-color: #4d00b3;
+    }
+  }
