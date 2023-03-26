@@ -1,6 +1,7 @@
 const contato = document.getElementById("contato");
 const conteudoPrincipal = document.getElementsByClassName("conteudoPrincipal");
-const btnProjetos = document.getElementById("btnProjetos");
+const mostrarProj = document.getElementById("mostrarProj");
+const voltarPrincipal = document.getElementById("voltarPrincipal")
 const proj = document.getElementsByClassName("proj");
 const projetos = document.getElementsByClassName("projetos");
 const header = document.getElementsByTagName("header");
@@ -32,7 +33,7 @@ function limpaTextIcon() {
 
 
 // DIV PROJETOS
-btnProjetos.addEventListener("click", aparecerDivProj);
+mostrarProj.addEventListener("click", aparecerDivProj);
 
 function aparecerDivProj(){
     proj[0].style.display = "block";
@@ -40,11 +41,12 @@ function aparecerDivProj(){
         proj[0].style.position = "relative";
         conteudoPrincipal[0].style.display = "none";
         projetos[0].style.display = "grid";
+        voltarPrincipal.style.display = "inline-block";
         header[0].style.display = "none";
         footer[0].style.display = "none";
         setTimeout(()=>{
             header[0].style.display = "flex";
             footer[0].style.display = "grid";
         }, 20)
-    }, 1000);    
+    }, 1100);    
 }

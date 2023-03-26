@@ -9,7 +9,8 @@ html::-webkit-scrollbar {
 }
 
 body {
-    background-color: #080624;
+    /* background-color: #080624; */
+    background-color: black;
     color: white;
     overflow-x: hidden;
 }
@@ -71,14 +72,17 @@ header {
 
 #email:hover {
     color: #9aff9a;
+    transform: rotate(360deg);
 }
 
 #github:hover {
     color: #753cfc;
+    transform: rotate(360deg);
 }
 
 #linkedin:hover {
     color: #00a6ff;
+    transform: rotate(360deg);
 }
 
 #nomeIcon {
@@ -87,6 +91,7 @@ header {
     bottom: -60px;
     left: 50%;
     transform: translateX(-50%);
+    z-index: 999;
 }
 
 /* SOBRE */
@@ -147,8 +152,7 @@ header {
 
 
 /* Projetos */
-.btnProjetos {
-    width: 300px;
+.btnEstilizado {
     padding: 15px;
     font-size: 1.5rem;
     border-radius: 10px;
@@ -156,21 +160,19 @@ header {
     position: relative;
     background-color: transparent;
     color: white;
+    transition: 0.5s;
     box-shadow: 0px 0px 50px #4b41db;
-    animation: border 2s;
-    animation-name: borda;
-    animation-duration: 2s;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+    animation: borda 2s infinite alternate;
 }
 
-.btnProjetos:hover {
+.btnEstilizado:hover {
     animation-play-state: paused;
     color: #00ccff;
     box-shadow: 0px 0px 100px #4b41db;
+    transition: 0.5s;
 }
 
-.btnProjetos::before {
+.btnEstilizado::before {
     content: '';
     position: absolute;
     top: -10px;
@@ -187,13 +189,31 @@ header {
     animation: botaoProj 1.5s ease-in-out;
 }
 
+#voltarPrincipal{
+    display: none; 
+    font-size: 1.2rem;
+    padding: 10px 10px;
+    margin: 0px 40px;
+    background-color: transparent;
+    color: white;
+    transition: 1s;
+    border-radius: 5px;
+    animation: borda 2s infinite alternate, projetosLeft 1s linear;
+}
+
+#voltarPrincipal:hover{
+    color: #00ccff;
+    box-shadow: 0px 0px 30px #4b41db;
+    transform: scale(1.1);
+    transition: 1s;
+}
+
 .proj {
     position: fixed;
     top: 50%;
     left: 50%;
     width: 5px;
-    background-color: #fff;
-    height: auto;
+    background-color: white;
     z-index: 10;
     animation: aumentarAlturaDiv 0.6s linear forwards, aumentarLarguraDiv 0.4s 0.6s linear forwards;
     display: none;
@@ -214,17 +234,18 @@ header {
 }
 
 .projetos p {
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 
 .conteudoProjeto {
-    margin: 10px;
+    margin: 20px;
+    padding: 20px;
 }
 
 .conteudoProjeto img {
     max-width: 100%;
-    border-top: 8px solid #00ccff;
-    border-left: 8px solid #00ccff;
+    border-top: 0.5rem solid #3e3892;
+    border-left: 0.5rem solid #3e3892;
     border-radius: 20px;
     transition: 1s;
 }
@@ -235,11 +256,15 @@ header {
     border-left: 8px solid #0004ff;
     border-radius: 20px;
     transition: 1s;
-    transform: scale(1.05);
+    transform: scale(1.07);
 }
 
-.tecnologias {
+.tecnologiasProj {
     color: #31b4ff;
+}
+
+.linksProj{
+    font-size: 1.1rem;
 }
 
 /* HABILIDADES */
@@ -268,7 +293,7 @@ header {
 .habilidades img {
     filter: grayscale(100%);
     transition: 1s;
-    height: 90px;
+    height: 80px;
 }
 
 .habilidades img:hover {
@@ -423,7 +448,7 @@ footer{
     100% {
         width: 100%;
         left: 0;
-        background-color: #080624;
+        background-color: black;
         opacity: 1;
     }
 }
