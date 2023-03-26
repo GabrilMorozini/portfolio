@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+html::-webkit-scrollbar {
+    width: 0 ! important
+}
+
 body {
     background-color: #080624;
     color: white;
@@ -36,6 +40,7 @@ header {
     margin: 10px;
     display: flex;
     align-items: center;
+    animation: header 1s linear;
 }
 
 .logo {
@@ -58,24 +63,25 @@ header {
     font-size: 1.8rem;
 }
 
-#linkedin, #github, #email{
+#linkedin,
+#github,
+#email {
     transition: 1s;
 }
 
-#email:hover{
+#email:hover {
     color: #9aff9a;
 }
 
-#github:hover{
+#github:hover {
     color: #753cfc;
 }
 
-#linkedin:hover{
+#linkedin:hover {
     color: #00a6ff;
-    transition: 1s;
 }
 
-#nomeIcon{
+#nomeIcon {
     font-size: 1.3rem;
     position: absolute;
     bottom: -60px;
@@ -89,14 +95,11 @@ header {
     position: relative;
     padding: 5px 15px;
     border-left: 5px solid #13119e;
-    animation: border 2s ;
-    animation-name: borda;
-    animation-duration: 5s;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+    animation: borda 5s infinite alternate, sobreAnimacao 1.5s ease;
 }
 
-.sobre h2, .sobre h3{
+.sobre h2,
+.sobre h3 {
     border-right: 4px solid white;
     white-space: nowrap;
     overflow: hidden;
@@ -115,7 +118,7 @@ header {
     animation: escrevendo 3s 2.2s steps(36), piscar 0.5s 2.2s infinite step-end alternate, aparecer 2.2s;
 }
 
-.sobre span{
+.sobre span {
     color: #0077ff;
 }
 
@@ -123,11 +126,11 @@ header {
     font-size: 1.2rem;
 }
 
-.linkContato{
+.linkContato {
     position: relative;
 }
 
-.linkContato::after{
+.linkContato::after {
     content: "";
     position: absolute;
     bottom: -2px;
@@ -141,7 +144,7 @@ header {
 .linkContato:hover::after {
     width: 100%;
 }
-  
+
 
 /* Projetos */
 .btnProjetos {
@@ -154,14 +157,14 @@ header {
     background-color: transparent;
     color: white;
     box-shadow: 0px 0px 50px #4b41db;
-    animation: border 2s ;
+    animation: border 2s;
     animation-name: borda;
     animation-duration: 2s;
     animation-iteration-count: infinite;
     animation-direction: alternate;
 }
 
-.btnProjetos:hover{
+.btnProjetos:hover {
     animation-play-state: paused;
     color: #00ccff;
     box-shadow: 0px 0px 100px #4b41db;
@@ -180,20 +183,45 @@ header {
     z-index: -5;
 }
 
-.projetos {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+.botaoProj{
+    animation: botaoProj 1.5s ease-in-out;
 }
 
-.projetos p{
+.proj {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    background-color: #fff;
+    height: auto;
+    z-index: 10;
+    animation: aumentarAlturaDiv 0.6s linear forwards, aumentarLarguraDiv 0.4s 0.6s linear forwards;
+    display: none;
+}
+
+.projetos {
+    display: none;
+    grid-template-columns: repeat(2, 1fr);
+    z-index: 999; 
+}
+
+.projetosLeft{
+    animation: projetosLeft 1s linear;   
+}
+
+.projetosRight{
+    animation: projetosRight 1s linear;
+}
+
+.projetos p {
     font-size: 1.2rem;
 }
 
-.imgProjeto{
-    margin: 10px;    
+.conteudoProjeto {
+    margin: 10px;
 }
 
-.imgProjeto img {
+.conteudoProjeto img {
     max-width: 100%;
     border-top: 8px solid #00ccff;
     border-left: 8px solid #00ccff;
@@ -201,7 +229,7 @@ header {
     transition: 1s;
 }
 
-.imgProjeto img:hover {
+.conteudoProjeto img:hover {
     max-width: 100%;
     border-top: 8px solid #0004ff;
     border-left: 8px solid #0004ff;
@@ -210,89 +238,216 @@ header {
     transform: scale(1.05);
 }
 
-.tecnologias{
+.tecnologias {
     color: #31b4ff;
 }
 
 /* HABILIDADES */
-.habilidades{
+.habilidades {
     margin-top: 60px;
     text-align: center;
+    animation: habilidades 1.5s ease-in-out;
 }
 
-.icons{
+.icons {
     display: inline-block;
 }
 
-.icons p{
+.icons p {
     margin-top: 2px;
     font-size: 1.5rem;
     opacity: 0;
     transition: 1s;
 }
 
-.icons img:hover + p{
+.icons img:hover+p {
     opacity: 1;
     transition: 1s;
 }
 
-.habilidades img{
+.habilidades img {
     filter: grayscale(100%);
     transition: 1s;
     height: 90px;
 }
 
-.habilidades img:hover{
+.habilidades img:hover {
     transform: scale(1.1);
     transition: 1s;
     filter: grayscale(0);
 }
 
+/* FOOTER */
+footer{
+    animation: footer 1.5s linear;
+}
+
 /* ANIMAÇÃO */
+
+@keyframes header{
+    0%{
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+@keyframes footer{
+    0%{
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
 
 @keyframes borda {
     0% {
-      border-color: #00ccff;
+        border-color: #00ccff;
     }
 
     100% {
-      border-color: #4d00b3;
+        border-color: #4d00b3;
     }
-  }
+}
 
-  @keyframes escrevendo {
+@keyframes escrevendo {
     0% {
-      width: 0;
+        width: 0;
     }
-  }
+}
 
-  @keyframes piscar {
+@keyframes piscar {
     50% {
-      border-color: transparent;
+        border-color: transparent;
     }
-  }
+}
 
-  @keyframes aparecer {
+@keyframes aparecer {
     0% {
-      opacity: 0;
-    }
-    100%{
         opacity: 0;
     }
-  }
 
-  @keyframes pulsar {
-    0% {
-      transform: scale(0.9);
-      opacity: 0;
-      border-color: #00ccff;
+    100% {
+        opacity: 0;
     }
-    50%{
+}
+
+@keyframes pulsar {
+    0% {
+        transform: scale(0.9);
+        opacity: 0;
+        border-color: #00ccff;
+    }
+
+    50% {
         opacity: 1;
     }
-    100%{
+
+    100% {
         transform: scale(1.1);
         opacity: 0;
         border-color: #4d00b3;
     }
-  }
+}
+
+
+@keyframes aumentarAlturaDiv {
+    0% {
+        height: 0vh;
+        opacity: 0;
+    }
+
+    100% {
+        height: 100%;
+        top: 0;
+        opacity: 1;
+    }
+}
+
+@keyframes sobreAnimacao {
+    0% {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+
+    50%{
+        transform: translateX(100px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes botaoProj {
+    0% {
+        opacity: 0;
+        transform: translateX(130px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+@keyframes habilidades {
+    0% {
+        opacity: 0;
+        transform: translate(100px,0);
+    }
+
+    50%{
+        transform: translate(0, 80px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes aumentarLarguraDiv {
+    0% {
+        width: 5vw;
+        opacity: 0;
+    }
+
+    100% {
+        width: 100%;
+        left: 0;
+        background-color: #080624;
+        opacity: 1;
+    }
+}
+
+@keyframes projetosLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+@keyframes projetosRight {
+    0% {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
