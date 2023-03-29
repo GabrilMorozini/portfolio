@@ -9,7 +9,6 @@ html::-webkit-scrollbar {
 }
 
 body {
-    /* background-color: #080624; */
     background-color: black;
     color: white;
     overflow-x: hidden;
@@ -150,7 +149,6 @@ header {
     width: 100%;
 }
 
-
 /* Projetos */
 .btnEstilizado {
     padding: 15px;
@@ -185,12 +183,12 @@ header {
     z-index: -5;
 }
 
-.botaoProj{
+.botaoProj {
     animation: botaoProj 1.5s ease-in-out;
 }
 
-#voltarPrincipal{
-    display: none; 
+#voltarPrincipal {
+    display: none;
     font-size: 1.2rem;
     padding: 10px 10px;
     margin: 0px 40px;
@@ -201,11 +199,28 @@ header {
     animation: borda 2s infinite alternate, projetosLeft 1s linear;
 }
 
-#voltarPrincipal:hover{
+#voltarPrincipal:hover {
     color: #00ccff;
     box-shadow: 0px 0px 30px #4b41db;
     transform: scale(1.1);
     transition: 1s;
+}
+
+.opacidadeAnimada{
+    animation: opacidade 1.5s linear forwards;
+}
+
+.animacaoVoltar {
+    animation: diminuirLarguraDiv 0.6s ease-in forwards, diminuirAlturaDiv 1s 0.6s  ease forwards;
+}
+
+.posicaoDivAnimada{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 999;
 }
 
 .proj {
@@ -215,21 +230,24 @@ header {
     width: 5px;
     background-color: white;
     z-index: 10;
-    animation: aumentarAlturaDiv 0.6s linear forwards, aumentarLarguraDiv 0.4s 0.6s linear forwards;
     display: none;
+}
+
+.animacaoProj {
+    animation: aumentarAlturaDiv 0.6s ease forwards, aumentarLarguraDiv 0.7s 0.6s ease forwards;
 }
 
 .projetos {
     display: none;
     grid-template-columns: repeat(2, 1fr);
-    z-index: 999; 
+    z-index: 999;
 }
 
-.projetosLeft{
-    animation: projetosLeft 1s linear;   
+.projetosLeft {
+    animation: projetosLeft 1s linear;
 }
 
-.projetosRight{
+.projetosRight {
     animation: projetosRight 1s linear;
 }
 
@@ -263,7 +281,7 @@ header {
     color: #31b4ff;
 }
 
-.linksProj{
+.linksProj {
     font-size: 1.1rem;
 }
 
@@ -303,34 +321,35 @@ header {
 }
 
 /* FOOTER */
-footer{
+footer {
     animation: footer 1.5s linear;
 }
 
 /* ANIMAÇÃO */
 
-@keyframes header{
-    0%{
+@keyframes header {
+    0% {
         opacity: 0;
         transform: translateY(-30px);
     }
-    100%{
+
+    100% {
         opacity: 1;
         transform: translateX(0px);
     }
 }
 
-@keyframes footer{
-    0%{
+@keyframes footer {
+    0% {
         opacity: 0;
         transform: translateY(30px);
     }
-    100%{
+
+    100% {
         opacity: 1;
         transform: translateX(0px);
     }
 }
-
 
 @keyframes borda {
     0% {
@@ -382,27 +401,13 @@ footer{
     }
 }
 
-
-@keyframes aumentarAlturaDiv {
-    0% {
-        height: 0vh;
-        opacity: 0;
-    }
-
-    100% {
-        height: 100%;
-        top: 0;
-        opacity: 1;
-    }
-}
-
 @keyframes sobreAnimacao {
     0% {
         opacity: 0;
         transform: translateX(-30px);
     }
 
-    50%{
+    50% {
         transform: translateX(100px);
     }
 
@@ -423,13 +428,14 @@ footer{
         transform: translateX(0);
     }
 }
+
 @keyframes habilidades {
     0% {
         opacity: 0;
-        transform: translate(100px,0);
+        transform: translate(100px, 0);
     }
 
-    50%{
+    50% {
         transform: translate(0, 80px);
     }
 
@@ -439,9 +445,22 @@ footer{
     }
 }
 
+@keyframes aumentarAlturaDiv {
+    0% {
+        height: 0vh;
+        opacity: 0;
+    }
+
+    100% {
+        height: 100%;
+        top: 0;
+        opacity: 1;
+    }
+}
+
 @keyframes aumentarLarguraDiv {
     0% {
-        width: 5vw;
+        width: 5px;
         opacity: 0;
     }
 
@@ -450,6 +469,48 @@ footer{
         left: 0;
         background-color: black;
         opacity: 1;
+    }
+}
+
+@keyframes diminuirAlturaDiv {
+    0% {
+        height: 100%;
+        width: 5px;
+        opacity: 1;
+        background-color: white;
+    }
+
+    100% {
+        height: 0;
+        opacity: 0;
+        top: 50%;
+    }
+}
+
+@keyframes diminuirLarguraDiv {
+    0% {
+        opacity: 0;
+        background-color: white;
+    }
+
+    50%{
+        opacity: 0.5;
+    }
+
+    100% {
+        width: 5px;
+        opacity: 0;
+        left: 50%;
+    }
+}
+
+@keyframes opacidade {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
     }
 }
 
