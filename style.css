@@ -107,11 +107,14 @@ header {
 
 /* SOBRE */
 .sobre {
-    max-width: 700px;
     position: relative;
     padding: 5px 15px;
     border-left: 5px solid #13119e;
     animation: borda 5s infinite alternate, sobreAnimacao 1.5s ease;
+}
+
+.textoSobre{
+    max-width: 700px;
 }
 
 .sobre h2,
@@ -140,6 +143,15 @@ header {
 
 .sobre p {
     font-size: 1.2rem;
+}
+
+.sobre img{
+    height: 400px;
+    position: absolute;
+    left: 80%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    animation: movimento 1s ease-out alternate infinite;
 }
 
 .linkContato {
@@ -251,7 +263,7 @@ header {
 
 #tituloPagProjetos{
     display: none;
-    animation: projetosRigth 1s linear;
+    animation: projetosRight 1s linear;
 }
 
 .projetos {
@@ -647,5 +659,16 @@ footer {
     100% {
         opacity: 1;
         transform: translateX(0px);
+    }
+}
+
+@keyframes movimento {
+    0%{
+
+        transform: translate(-50%, -45%);
+    }
+
+    100%{
+        transform: translate(-50%, -55%);
     }
 }
