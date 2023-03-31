@@ -26,7 +26,7 @@ Além disso, com uma interface de usuário moderna e fácil de navegar, ele perm
 <br>
 
 ## ✒️ Licença
-Esse projeto está sob licença MIT. Leia o arquivo <a href="./license" >LICENSE</a> para mais detalhes. 
+Esse projeto está sob licença MIT. Leia o arquivo <a href="./LICENSE" >LICENSE</a> para mais detalhes. 
 
 <br><br>
 
