@@ -4,18 +4,19 @@
     box-sizing: border-box;
 }
 
-::-webkit-scrollbar{
+::-webkit-scrollbar {
     width: 8px;
     background-color: rgb(92, 92, 92);
     border-radius: 5px;
 }
 
-::-webkit-scrollbar-thumb{
+::-webkit-scrollbar-thumb {
     background-color: #ffffff;
     border-radius: 5px;
 }
 
 body {
+    font-family: 'Russo One', sans-serif;
     background-color: black;
     color: white;
     overflow-x: hidden;
@@ -36,6 +37,7 @@ a {
 
 .principal {
     margin: auto;
+    margin-top: 0;
     max-width: 1500px;
     width: 95vw;
     height: 95vh;
@@ -51,13 +53,13 @@ header {
 }
 
 .logo {
-    width: 70px;
-    height: 70px;
+    width: 50px;
+    height: 50px;
     font-size: 2.5rem;
     text-align: center;
 }
 
-.logo img{
+.logo img {
     width: 100%;
     object-fit: cover;
     cursor: pointer;
@@ -113,7 +115,7 @@ header {
     animation: borda 5s infinite alternate, sobreAnimacao 1.5s ease;
 }
 
-.textoSobre{
+.textoSobre {
     max-width: 700px;
 }
 
@@ -122,17 +124,16 @@ header {
     border-right: 4px solid white;
     white-space: nowrap;
     overflow: hidden;
+    font-family: 'Chivo Mono', monospace;
 }
 
 .sobre h2 {
-    font-family: monospace;
     font-size: 2.5rem;
     width: 17ch;
     animation: escrevendo 2s steps(17), piscar 0.5s infinite step-end alternate;
 }
 
 .sobre h3 {
-    font-family: monospace;
     width: 36ch;
     animation: escrevendo 3s 2.2s steps(36), piscar 0.5s 2.2s infinite step-end alternate, aparecer 2.2s;
 }
@@ -145,7 +146,7 @@ header {
     font-size: 1.2rem;
 }
 
-.sobre img{
+.sobre img {
     height: 400px;
     position: absolute;
     left: 80%;
@@ -156,6 +157,12 @@ header {
 
 .linkContato {
     position: relative;
+    transition: 1s;
+}
+
+.linkContato:hover{
+    transition: 1s;
+    color: rgba(97, 255, 24, 0.822);
 }
 
 .linkContato::after {
@@ -230,15 +237,15 @@ header {
     transition: 1s;
 }
 
-.opacidadeAnimada{
-    animation: opacidade  1.5s linear forwards;
+.opacidadeAnimada {
+    animation: opacidade 1.5s linear forwards;
 }
 
 .animacaoVoltar {
-    animation: diminuirLarguraDiv 1s ease forwards, diminuirAlturaDiv 1s 1s  ease forwards;
+    animation: diminuirLarguraDiv 1s ease forwards, diminuirAlturaDiv 1s 1s ease forwards;
 }
 
-.posicaoDivAnimada{
+.posicaoDivAnimada {
     position: fixed;
     top: 0;
     left: 0;
@@ -261,7 +268,7 @@ header {
     animation: aumentarAlturaDiv 0.6s ease forwards, aumentarLarguraDiv 0.7s 0.6s ease forwards;
 }
 
-#tituloPagProjetos{
+#tituloPagProjetos {
     display: none;
     animation: projetosRight 1s linear;
 }
@@ -289,7 +296,7 @@ header {
     padding: 20px;
 }
 
-.containerImgProj{
+.containerImgProj {
     width: 100%;
     height: 300px;
 }
@@ -313,7 +320,7 @@ header {
     transform: scale(1.07);
 }
 
-.containerTextoProj{
+.containerTextoProj {
     margin-top: 15px;
     padding: 13px;
     text-align: justify;
@@ -329,23 +336,23 @@ header {
     font-size: 1.1rem;
 }
 
-#msgFinalProj{
+#msgFinalProj {
     animation: footer 1.5s linear;
     display: none;
     padding-bottom: 50px;
 }
 
-#msgFinalProj a{
-    font-size: 2rem;    
+#msgFinalProj a {
+    font-size: 2rem;
 }
 
-#msgFinalProj a:hover{
-    border-bottom: 4px white solid;    
+#msgFinalProj a:hover {
+    border-bottom: 4px white solid;
 }
 
-#msgFinalProj h2{
+#msgFinalProj h2 {
     margin-bottom: 60px;
-    font-size: 2.3rem;    
+    font-size: 2.3rem;
 }
 
 .btnContato {
@@ -388,8 +395,17 @@ header {
     animation: habilidades 1.5s ease-in-out;
 }
 
+.containerIcons{
+    display: grid;
+    grid-template-columns: repeat(8, 120px);
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+}
+
 .icons {
     display: inline-block;
+    width: 100px;
 }
 
 .icons p {
@@ -418,7 +434,438 @@ header {
 
 /* FOOTER */
 footer {
+    font-size: 17px;
     animation: footer 1.5s linear;
+}
+
+footer h5 {
+    font-size: 18px;
+}
+
+/* RESPONSIVIDADE */
+@media screen and (max-width:1150px) {
+    html {
+        font-size: 14px;
+    }
+
+    .textoSobre {
+        max-width: 600px;
+    }
+
+    .sobre img {
+        left: 85%;
+        height: 290px;
+    }
+
+    .containerIcons{
+        grid-template-columns: repeat(8, 90px);
+    }
+
+    .icons {
+        width: 90px;
+    }
+    
+    .icons img {
+        height: 70px;
+    }
+
+    .containerTextoProj p {
+        font-size: 1.1rem;
+    }
+}
+
+
+@media screen and (max-width:1000px) {
+    .projetos {
+        grid-template-columns: 1fr;
+    }
+
+    .conteudoProjeto {
+        padding: 0px 50px 50px 50px;
+    }
+
+    .linksProj{
+        font-size: 1.3rem;    
+    }
+
+    .containerIcons{
+        grid-template-columns: repeat(8, 80px);
+    }
+}
+
+@media screen and (max-width:900px) {
+    .textoSobre {
+        font-size: 1.2rem;
+        max-width: 650px;
+    }
+
+    .sobre img {
+        display: none;
+    }
+
+    #mostrarProj{
+        margin-left: 10px;
+    }
+
+    footer{
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width:700px) {
+    .logo{
+        width: 40px;
+        height: 40px;
+    }
+
+    .conteudoProjeto{
+        padding: 0;
+    }
+
+    .textoSobre {
+        max-width: 520px;
+    }
+
+    .containerIcons{
+        grid-template-columns: repeat(4, 90px);
+    }
+
+    .containerImgProj {
+        height: 200px;
+    }
+
+    #msgFinalProj h2{
+        margin-top: 50px;
+        font-size: 1.8rem;
+    }
+    #msgFinalProj a{
+        font-size: 1.6rem;
+    }
+}
+
+@media screen and (max-width: 530px) {
+
+    html{
+        font-size: 13px;
+    }
+
+    .textoSobre {
+        width: 100% ;
+    }
+
+    #tituloPagProjetos{
+        margin-top: 30px;
+    }
+
+    .icons img {
+        height: 60px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    header{
+        margin-bottom: 30px;
+    }
+
+    .textoSobre p{
+        font-size: 1.2rem;
+    }
+    
+    .sobre h3{
+        animation: none;
+        white-space: normal;
+        border: none;
+        width: auto;
+    }
+
+    .linkContato{
+        border-bottom: 4px solid rgba(97, 255, 24, 0.822);
+    }
+
+    .linkContato::after{
+        display: none;
+    }
+
+    footer{
+        font-size: 13px;
+    }
+
+    footer h5 {
+        font-size: 16px;
+    }
+    
+
+    ::-webkit-scrollbar {
+        width: 5px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    html{
+        font-size: 12px;
+    }
+
+    .textoSobre p{
+        font-size: 1.4rem;
+    }
+
+    .habilidades h2{
+        font-size: 1.7rem;
+    }
+
+    .containerIcons{
+        grid-template-columns: repeat(4, 60px);
+    }
+
+    .icons img {
+        height: 50px;
+    }
+
+    .containerImgProj {
+        height: 150px;
+    }
+
+    .containerTextoProj{
+        margin-top: 8px;
+    }
+
+    .conteudoProjeto{
+        margin: 0;
+        padding: 0 10px 0 10px;
+    }
+}
+
+
+@media screen and (max-width: 350px) {
+    html{
+        font-size: 10px;
+    }
+
+    .logo{
+        width: 30px;
+        height: 30px;
+    }
+
+    .textoSobre p{
+        font-size: 1.4rem;
+    }
+
+    .habilidades h2{
+        font-size: 1.7rem;
+    }
+
+    .containerIcons{
+        grid-template-columns: repeat(4, 60px);
+    }
+
+    .icons img {
+        height: 45px;
+    }
+}
+
+@media screen and (max-width: 310px) {
+    html{
+        font-size: 10px;
+    }
+
+    header{
+        padding: 10px 0 10px 0;
+    }
+
+    .logo{
+        width: 30px;
+        height: 30px;
+    }
+
+    .textoSobre p{
+        font-size: 1.4rem;
+    }
+    
+    .habilidades{
+        margin-top: 30px;
+    }
+
+    .habilidades h2{
+        font-size: 1.7rem;
+    }
+
+    .containerIcons{
+        grid-template-columns: repeat(4, 60px);
+    }
+
+    .icons img {
+        height: 45px;
+    }
+
+    .linksProj{
+        padding: 10px;
+    }
+
+    #voltarPrincipal{
+        margin: auto;
+    }
+
+    #msgFinalProj h2{
+        margin: 30px 0 40px 0 ;
+    }
+
+    .btnContato{
+        padding: 10px;
+    }
+
+    footer{
+        font-size: 10px;
+    }
+
+    footer h5 {
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-width: 290px) {
+    html{
+        font-size: 9px;
+    }
+
+    .logo{
+        width: 28px;
+        height: 28px;
+    }
+
+    .containerImgProj {
+        height: 100px;
+    }
+
+    .habilidades h2{
+        font-size: 1.8rem;
+    }
+
+    .containerIcons{
+        grid-template-columns: repeat(4, 50px);
+    }
+
+    .icons img {
+        height: 40px;
+    }
+
+    .linksProj{
+        padding: 8px;
+    }
+
+    .containerTextoProj {
+        height: 100px;
+    }
+}
+
+@media screen and (max-width: 260px) {
+    html{
+        font-size: 7px;
+    }
+
+    .contato {
+        border-bottom: 2px solid white;
+    }
+
+    .logo{
+        width: 25px;
+        height: 25px;
+    }
+
+    .habilidades h2{
+        font-size: 2rem;
+    }
+
+    .containerIcons{
+        grid-template-columns: repeat(4, 40px);
+    }
+
+    .icons img {
+        height: 35px;
+    }
+
+    .linksProj{
+        padding: 8px;
+    }
+}
+
+@media screen and (max-width: 225px) {
+    html{
+        font-size: 6px;
+    }
+
+    .sobre {
+        border-left: 4px solid #13119e !important;
+    }
+
+    .logo{
+        width: 22px;
+        height: 22px;
+    }
+
+    #mostrarProj{
+        padding: 7px;
+    }
+
+    .containerImgProj {
+        height: 60px;
+    }
+
+    .habilidades h2{
+        font-size: 2rem;
+    }
+
+    .containerIcons{
+        grid-template-columns: repeat(4, 35px);
+    }
+
+    .icons img {
+        height: 30px;
+    }
+
+    .linksProj{
+        padding: 8px;
+        display: block;
+        margin: 10px 0 0 0 !important;
+    }
+
+    footer{
+        font-size: 7px;
+    }
+
+    footer h5 {
+        font-size: 10px;
+    }
+}
+
+@media screen and (max-width: 205px) {
+    html{
+        font-size: 5px;
+    }
+
+    .logo{
+        width: 20px;
+        height: 20px;
+    }
+
+    .habilidades h2{
+        font-size: 2.1rem;
+    }
+
+    .containerIcons{
+        grid-template-columns: repeat(4, 30px);
+    }
+
+    .icons img {
+        height: 25px;
+    }
+
+    footer{
+        font-size: 5px;
+    }
+
+    footer h5 {
+        font-size: 7px;
+    }
 }
 
 /* ANIMAÇÃO */
@@ -617,7 +1064,7 @@ footer {
         background-color: white;
     }
 
-    50%{
+    50% {
         opacity: 0.5;
     }
 
@@ -663,12 +1110,12 @@ footer {
 }
 
 @keyframes movimento {
-    0%{
+    0% {
 
         transform: translate(-50%, -45%);
     }
 
-    100%{
+    100% {
         transform: translate(-50%, -55%);
     }
 }

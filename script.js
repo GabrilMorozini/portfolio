@@ -48,7 +48,7 @@ function aparecerDivProj() {
         conteudoPrincipal[0].style.display = "none";
         proj.style.position = "relative";
         projetos[0].style.display = "grid";
-        voltarPrincipal.style.display = "inline-block";
+        voltarPrincipal.style.display = "block";
         tituloPagProjetos.style.display = "block";
         msgFinalProj.style.display = "block";
         aparecerHeaderFooter(20);
